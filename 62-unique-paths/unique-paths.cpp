@@ -14,7 +14,6 @@ class Solution {
     }
 public:
     int uniquePaths(int m, int n) {
-        pair<int,int> coord;
         vector<vector<int>> dp(m,vector<int>(n,-1));
         return helper(m-1,n-1,m,n,dp);
     }
