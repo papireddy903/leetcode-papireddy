@@ -27,14 +27,14 @@ public:
 
         while (temp1!=NULL and temp2!=NULL){
             if (temp1->val <= temp2->val){
-                ListNode* newnode = new ListNode(temp1->val);
-                cur->next = newnode;
+                // ListNode* newnode = new ListNode(temp1->val);
+                cur->next = temp1;
                 temp1 = temp1->next;
 
             }
             else{
-                ListNode* newnode = new ListNode(temp2->val);
-                cur->next = newnode;
+                // ListNode* newnode = new ListNode(temp2->val);
+                cur->next = temp2;
                 temp2 = temp2->next;
             }
             cur = cur->next;
