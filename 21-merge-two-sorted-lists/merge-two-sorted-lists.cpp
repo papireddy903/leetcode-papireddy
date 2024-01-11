@@ -42,17 +42,15 @@ public:
         }
 
 
-        while (temp1!=NULL){
-            ListNode* newnode = new ListNode(temp1->val);
-            cur->next = newnode;
-            temp1 = temp1->next;
+        if (temp1!=NULL){
+            cur->next = temp1;
             cur = cur->next;
+            temp1 = temp1->next;
         }
         while (temp2!=NULL){
-            ListNode* newnode = new ListNode(temp2->val);
-            cur->next = newnode;
-            temp2 = temp2->next;
+            cur->next =temp2;
             cur = cur->next;
+            temp2 = temp2->next;
         }
 
         return newHead->next;
