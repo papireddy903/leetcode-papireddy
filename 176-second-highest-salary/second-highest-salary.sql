@@ -6,5 +6,6 @@ SELECT
     CASE 
         WHEN MAX(ct) >= 2 THEN (SELECT salary FROM SortedTable WHERE ct = 2)
         ELSE NULL
-    END AS SecondHighestSalary
+    END 
+    AS SecondHighestSalary
 FROM SortedTable;
