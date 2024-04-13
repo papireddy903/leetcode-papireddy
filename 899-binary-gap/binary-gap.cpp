@@ -25,7 +25,10 @@ public:
             if (dig[i]=='1'){
                 dist = i - ind;
                 cout << "dist: " << dist << endl;
-                maxi = max(dist,maxi);
+                // maxi = max(dist,maxi);
+                if (dist > maxi){
+                    maxi = dist;
+                }
                 ind = i;
             }
         }
