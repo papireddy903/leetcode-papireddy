@@ -10,19 +10,19 @@
 
 class Solution {
     TreeNode* ans;
-    private:
     void helper(TreeNode* org, TreeNode* cloned, TreeNode* target){
-
-        if (org==target) ans = cloned;
         if (org==NULL) return;
+        if (org==target) ans = cloned;
         helper(org->left, cloned->left, target);
         helper(org->right, cloned->right, target);
-
-
     }
+
 public:
     TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
         helper(original, cloned, target);
         return ans;
+        
+
+        
     }
 };
