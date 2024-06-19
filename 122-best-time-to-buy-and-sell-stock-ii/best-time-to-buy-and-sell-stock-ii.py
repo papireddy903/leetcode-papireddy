@@ -6,10 +6,8 @@ class Solution:
             
             if prices[i] > cur_price:
                 profit += prices[i] - cur_price
-                cur_price = prices[i]
-
-            else:
-                cur_price = prices[i] 
+            cur_price = prices[i]
+            
         return profit
             
         
