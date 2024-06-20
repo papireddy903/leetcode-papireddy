@@ -24,12 +24,10 @@ public:
             }
         }
 
-        vector<int> ans;
         for (int i = 0;i<n;i++){
-            ans.push_back(prefix[i] * suffix[i]);
-        }
-
-        return ans;
+            prefix[i] = prefix[i] * suffix[i];
+        }   
+        return prefix;
 
         
     }
