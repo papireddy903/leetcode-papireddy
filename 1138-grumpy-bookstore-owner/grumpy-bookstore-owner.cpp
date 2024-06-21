@@ -10,26 +10,32 @@ public:
         }
         int maxi = INT_MIN;
         int i = 0;
-        int j = minutes-1;
+        int j = 0;
         int n = customers.size();
         // int no_sum = 0;
+        int no_sum = 0;
         while (i<n and j<n){
-            int no_sum = 0;
-            for (int k = i;k<=j;k++){
-                 if (grumpy[k] == 1){
-                    no_sum += customers[k];
-                 }
+            if (grumpy[j] == 1){
+                no_sum += customers[j];
             }
+
+
+            // for (int k = i;k<=j;k++){
+            //      if (grumpy[k] == 1){
+            //         no_sum += customers[k];
+            //      }
+            // }
             if (j-i+1 == minutes){
                 
                 maxi = max(no_sum, maxi);
                 // cout << "MAXI: " << maxi << endl;
-                j++;
+                if (grumpy[i] == 1){
+                    no_sum-=customers[i];
+                }
                 i++;
             }
-            else{
-                j++;
-            }
+            j++;
+            
             
         }
         return maxi+initial_score;
