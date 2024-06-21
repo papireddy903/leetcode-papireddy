@@ -12,12 +12,10 @@ public:
         int i = 0;
         int j = minutes-1;
         int n = customers.size();
-        int sum = 0;
         // int no_sum = 0;
         while (i<n and j<n){
             int no_sum = 0;
             for (int k = i;k<=j;k++){
-                 sum += grumpy[k];
                  if (grumpy[k] == 1){
                     no_sum += customers[k];
                  }
@@ -25,7 +23,7 @@ public:
             if (j-i+1 == minutes){
                 
                 maxi = max(no_sum, maxi);
-                cout << "MAXI: " << maxi << endl;
+                // cout << "MAXI: " << maxi << endl;
                 j++;
                 i++;
             }
