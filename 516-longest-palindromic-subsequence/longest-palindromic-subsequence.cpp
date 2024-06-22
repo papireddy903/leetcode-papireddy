@@ -20,22 +20,29 @@ public:
         reverse(s.begin(),s.end());
         int n = s.size();
         // vector<vector<int>> dp(n, vector<int> (n,-1));
-        vector<vector<int>> dp(n+1, vector<int> (n+1,0));
+        // vector<vector<int>> dp(n+1, vector<int> (n+1,0));
+        vector<int> prev(n+1,0);
+        vector<int> cur(n+1);
 
         for (int i = 1;i<=n;i++){
             for (int j = 1;j<=n;j++){
                 if (org[i-1] == s[j-1]){
-                    dp[i][j] = 1 + dp[i-1][j-1];
+                    // dp[i][j] = 1 + dp[i-1][j-1];
+                    cur[j] = 1 + prev[j-1];
 
                 }
                 else{
-                    dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+                    // dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+                    cur[j] = max(prev[j], cur[j-1]);
                 }
             }
+            prev =cur;
+
         }
 
+
         // return helper(n-1,n-1,org,s,dp);
-        return dp[n][n];
+        return prev[n];
         
     }
 };
