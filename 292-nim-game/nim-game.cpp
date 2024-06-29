@@ -20,7 +20,7 @@ class Solution {
 public:
     bool canWinNim(int n) {
 
-        if (n > 1000) return n % 4 != 0;
+        if (n > 10000000) return n % 4 != 0;
 
         vector<int> dp(n+1, -1);
         
