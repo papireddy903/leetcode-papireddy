@@ -7,11 +7,14 @@ public:
         for (int i = 0;i<n;i++){
             if (arr[i] == 0){
                 zeroes++;
+                continue;
             }
-            else{
-                if (i+zeroes < n)
+            if (i+zeroes < n){
                 new_arr[i+zeroes] = arr[i];
+            }else{
+                break;
             }
+            
         }
         for (int i = 0;i<n;i++){
             arr[i] = new_arr[i];
