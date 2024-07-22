@@ -3,22 +3,21 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        zero_count = 0 
-        one_count = 0 
-        two_count = 0 
-        for i in nums:
-            if i == 0:
-                zero_count+=1 
-            elif i==1:
-                one_count+=1 
+        n = len(nums)
+        low = mid = 0
+        high = n-1
+
+        while mid<=high:
+            
+            if nums[mid] == 0:
+                nums[mid],nums[low] = nums[low],nums[mid]
+                mid+=1 
+                low+=1 
+            elif nums[mid] == 1:
+                mid+=1 
             else:
-                two_count+=1 
+                nums[mid],nums[high] = nums[high],nums[mid]
+                high-=1 
         
-        i = 0 
-        nums[i:zero_count] = [0]*zero_count 
-        i+=zero_count
-        nums[i:i+one_count] = [1]*one_count
-        i+=one_count 
-        nums[i:i+two_count] = [2]*two_count
-        
+
         
