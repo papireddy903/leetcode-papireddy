@@ -1,24 +1,36 @@
+from typing import List
+
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
+        if not matrix:
+            return
+        
+        m, n = len(matrix), len(matrix[0])
+        first_row_has_zero = any(matrix[0][j] == 0 for j in range(n))
+        first_col_has_zero = any(matrix[i][0] == 0 for i in range(m))
 
-        m = len(matrix)
-        n = len(matrix[0])
-
-        rows = [0]*m
-        cols = [0]*n 
-
-        for i in range(m):
-            for j in range(n):
+        # Use first row and first column as markers.
+        for i in range(1, m):
+            for j in range(1, n):
                 if matrix[i][j] == 0:
-                    cols[j] = 1 
-                    rows[i] = 1 
-        
-        for i in range(m):
+                    matrix[i][0] = 0
+                    matrix[0][j] = 0
+
+        # Zero out cells based on the markers.
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][0] == 0 or matrix[0][j] == 0:
+                    matrix[i][j] = 0
+
+        # Zero out the first row if needed.
+        if first_row_has_zero:
             for j in range(n):
-                if rows[i] == 1 or cols[j] == 1:
-                    matrix[i][j] = 0 
-        
-        
+                matrix[0][j] = 0
+
+        # Zero out the first column if needed.
+        if first_col_has_zero:
+            for i in range(m):
+                matrix[i][0] = 0
