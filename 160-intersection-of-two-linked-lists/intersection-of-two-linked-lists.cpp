@@ -26,9 +26,7 @@ public:
             if (l2==NULL and l1!=NULL){
                 l2 = headA;
             }
-            if (l1 == NULL and l2==NULL){
-                return NULL;
-            }
+            
             
 
         }
