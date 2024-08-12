@@ -15,21 +15,26 @@ public:
         ListNode* cur = head;
 
         while (cur!=NULL){
-            if (cur->val==val){
+            if (cur->val == val){
                 if (prev == NULL){
                     ListNode* delNode = head;
                     head = head->next;
                     cur = head;
                     delete delNode;
+
                 }
-                else if (cur->next == NULL){
+                else if (cur->next==NULL){
                     prev->next = NULL;
                     delete cur;
                     break;
                 }
-                else{
-                    cur = cur->next;
-                    prev->next = cur;
+
+                else {
+                    ListNode* delNode = cur;
+                    prev->next = cur->next;
+                    cur = prev->next;
+                    delete delNode;
+
                 }
             }
             else{
@@ -37,6 +42,7 @@ public:
                 cur = cur->next;
             }
         }
+
         return head;
         
     }
